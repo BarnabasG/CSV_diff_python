@@ -176,12 +176,8 @@ class Ui_Dialog(object):
     
     def add_operation(self, connective, op_string):
 
-        print(connective, op_string)
-
         self.conditions[-1]["connective"] = connective
         self.queryList.append(op_string)
-
-        print("add",self.conditions)
 
         self.hide_conditions()
     
@@ -370,10 +366,11 @@ class Ui_Dialog(object):
             self.changesWindow.append(field[0]+" - "+str(field[1]["total"])+" changes")
         self.changesWindow.append('')
         self.changesWindow.append("===Changes : "+str(len(changes))+"===")
-        if len(changes) > 0:
-            self.changesWindow.append("'"+"','".join([x[0] for x in changes.keys()])+"'\n")
-        for key, value in changes.items():
-            self.changesWindow.append(str(key if len(key)>1 else key[0])+' : '+str([str(v[0])+" : "+str(v[1]) for v in value]))
+        self.changesWindow.append("Expand a change reason below")
+        #if len(changes) > 0:
+        #    self.changesWindow.append("'"+"','".join([x[0] for x in changes.keys()])+"'\n")
+        #for key, value in changes.items():
+        #    self.changesWindow.append(str(key if len(key)>1 else key[0])+' : '+str([str(v[0])+" : "+str(v[1]) for v in value]))
         self.changesWindow.append('\n')
     
     def write_new_rows(self, new, new2, count_a):
@@ -633,7 +630,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "CSV/Excel Diff"))
         self.label.setText(_translate("Dialog", "File 1"))
         self.label_2.setText(_translate("Dialog", "File 2"))
         self.loadBtn.setText(_translate("Dialog", "Load"))
