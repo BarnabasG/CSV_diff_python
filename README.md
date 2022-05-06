@@ -38,3 +38,9 @@ The data can be viewed and queried
 ![image](https://user-images.githubusercontent.com/57625180/164940308-c1857fe5-4a0b-40e6-bf26-984af6e05fdb.png)
 
 ![image](https://user-images.githubusercontent.com/57625180/164938688-48768118-4ccb-4f5c-bd4b-38c905976373.png)
+
+## Limitations
+
+The contents of the files are loaded into a pandas dataframe before any processing can occur. For larger datasets, CSV files show a large performance increase over XLSX/XLS files.
+After data is loaded, running comparissons is significantly less time consuming.
+
