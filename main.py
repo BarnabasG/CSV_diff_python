@@ -333,7 +333,7 @@ class Ui_Dialog(object):
     
     def write_summary(self,pre_name,post_name,duplicate_keys_before,duplicate_keys_after,new,lost,count_a,count_b,changes,totals):
         self.summary.append("+++ SUMMARY +++")
-        self.summary.append(str(datetime.now()))
+        self.summary.append(str(datetime.strftime(datetime.now(), "%m/%d/%Y %H:%M:%S")))
         self.summary.append("\n{} -> {}".format(pre_name,post_name))
         self.summary.append("===Duplicate keys before | after : {} | {}".format(str(len(duplicate_keys_before)),str(len(duplicate_keys_after))))
         self.summary.append(f"===New rows: {str(len(new))} - total rows post: {str(count_a)}===")
@@ -435,7 +435,7 @@ class Ui_Dialog(object):
         files = "{}-{}".format(pre_name,post_name)
         with open('changes_summary_'+files+'.txt', 'w') as f:
             f.write("+++ SUMMARY +++\n")
-            f.write(str(datetime.now()))
+            f.write(str(datetime.strftime(datetime.now(), "%m/%d/%Y %H:%M:%S")))
             f.write("\n{} -> {}\n".format(pre_name,post_name))
             f.write("===Duplicate keys before | after: {} | {}\n".format(str(len(duplicate_keys_before)),str(len(duplicate_keys_after))))
             f.write("===New rows: "+str(len(new))+" - total rows post: "+str(count_a)+"===\n")
